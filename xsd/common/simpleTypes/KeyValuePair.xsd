@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:include schemaLocation="common/simpleTypes/Description512.xsd" />
+  <xsd:complexType name ="KeyValuePairType">
+    <xsd:annotation>
+      <xsd:documentation>Поля с ключем и значением</xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="KeyValuePair" >
+		  <xsd:attribute name="key" type="Description512Type" use="required" />
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:simpleType name="KeyValuePair">
+	  <xsd:restriction base="xsd:string" >
+		  <xsd:minLength value="1"/>
+		  <xsd:maxLength value="512"/>
+	  </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:element name="statusReport" nillable="true" type="StatusReportType" />
+  <xsd:complexType name="StatusReportType">
+    <xsd:sequence>
+      <xsd:element name="reportDateTime" type="xsd:dateTime" />
+      <xsd:element name="reportRecipient" type="xsd:string" />
+      <xsd:element name="reportItem" type="ReportItemType" />	  
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ReportItemType">
+    <xsd:sequence>
+      <xsd:element name="messageId" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="documentId" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="messageSender" type="xsd:string" />
+      <xsd:element name="messageRecepient" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="isTest" type="xsd:string" />
+      <xsd:element name="documentType" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="documentNumber" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="documentDate" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="statusItem" type="StatusItemType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="StatusItemType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="dateTime" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="stage" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="state" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="diadocDetails" type="DiadocDetails" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="description" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="error" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="additionalInfo" type="AdditionalInformation" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DiadocDetails">
+    <xsd:sequence>
+      <xsd:element name="boxId" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="messageId" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="invoiceId" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="invoiceCorrectionId" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="torg12Id" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="universalTransferDocumentEntityId" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="universalCorrectionDocumentEntityId" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="priceListId" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="nonformalizedId" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="diadocUrls" type="DiadocUrls" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="universalDocumentFunction" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DiadocUrls">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="messageUrl" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="invoiceUrl" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="invoiceCorrectionUrl" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="torg12Url" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="universalTransferDocumentUrl" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="universalCorrectionDocumentUrl" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="priceListUrl" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="nonformalizedUrl" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AdditionalInformation">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="additionalMessageId" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="revocationItiatorGln" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
